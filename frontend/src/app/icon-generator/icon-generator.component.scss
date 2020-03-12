@@ -1,0 +1,21 @@
+.character-icon {
+  width: 83px;
+  .career {
+    margin-top: -32px;
+    display: flex;
+
+    .career-icon-container {
+      width: 40px;
+      overflow: hidden;
+      margin-right: 2px;
+
+      .career-icon {
+        height: 80px;
+        width: 80px;
+      }
+      .career2 {
+        margin-left: -40px;
+      }
+    }
+  }
+}
