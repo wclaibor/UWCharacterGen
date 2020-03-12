@@ -7,12 +7,12 @@ services:
       - '3000:3000' #specify ports forewarding
     container_name: back-container
     restart: always
-  # frontend: #name of the first service
-  #   build: ./frontend
-  #   volumes:
-  #     - ./frontend:/usr/src/app/frontend
-  #   ports:
-  #     - '4200:4200' # specify port forewarding
-  #     - '49153:49153'
-  #   container_name: front-container
-  #   restart: always
+  frontend: #name of the first service
+    build: ./frontend
+    volumes:
+      - ./frontend:/usr/src/app/frontend
+    ports:
+      - '4200:4200' # specify port forewarding
+      - '49153:49153'
+    container_name: front-container
+    restart: always
