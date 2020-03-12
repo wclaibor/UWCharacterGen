@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
@@ -13,12 +14,13 @@ import { IconGeneratorComponent } from "./icon-generator/icon-generator.componen
 @NgModule({
   declarations: [AppComponent, ClassSelectorComponent, IconGeneratorComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule
   ],

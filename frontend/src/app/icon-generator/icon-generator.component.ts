@@ -49,6 +49,6 @@ export class IconGeneratorComponent implements OnChanges, IconGenerator {
   }
 
   getIconImage = () => {
-    return domtoimage.toBlob(this.characterIconRef.nativeElement);
+    return domtoimage.toPng(this.characterIconRef.nativeElement);
   };
 }

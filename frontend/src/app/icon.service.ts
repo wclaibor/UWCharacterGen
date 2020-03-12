@@ -11,7 +11,7 @@ export class IconService {
     this.generator = generator;
   }
 
-  async getIcon() {
-    return await this.generator.getIconImage();
+  getIcon() {
+    return this.generator.getIconImage();
   }
 }

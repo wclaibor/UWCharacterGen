@@ -1,5 +1,5 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import HummusRecipe from "hummus-recipe";
 import { IconService } from "./icon.service";
 import { Character } from "./models/character";
 
@@ -7,15 +7,19 @@ import { Character } from "./models/character";
   providedIn: "root"
 })
 export class CharacterSheetService {
-  pdf: HummusRecipe;
-
-  constructor(private readonly iconService: IconService) {
-    this.pdf = new HummusRecipe("../assets/character-sheet.pdf", "output.pdf");
-  }
+  constructor(
+    private readonly iconService: IconService,
+    private readonly http: HttpClient
+  ) {}
 
   generateCharacter(value: Character) {
-    this.iconService.getIcon().then((icon: Blob) => {
-      this.pdf.editPage(1).image;
+    this.iconService.getIcon().then((icon: string) => {
+      this.http
+        .post("http://localhost:3000/createCharacter", {
+          character: value,
+          icon: icon
+        })
+        .subscribe();
     });
   }
 }
