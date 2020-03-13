@@ -5,7 +5,7 @@ import { saveTempIcon } from './utils/saveTempIcon'
 import { writeCharacterSheet } from './utils/writeCharacterSheet'
 
 const router = express.Router()
-var corsOptions: cors.CorsOptions = {
+const corsOptions: cors.CorsOptions = {
   origin: '*',
   optionsSuccessStatus: 200,
 }
