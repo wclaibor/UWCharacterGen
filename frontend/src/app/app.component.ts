@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { CharacterService } from './character.service'
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 export class AppComponent {
   title = 'uncharted-worlds-icon-generator'
 
-  formGroup = new FormGroup({
-    archetype: new FormControl('', Validators.required),
-    characterName: new FormControl('', Validators.required),
-    background: new FormControl('Advanced', Validators.required),
-    career1: new FormControl('Military', Validators.required),
-    career2: new FormControl('Fanatic', Validators.required),
-  })
+  character = this.characterService.character
+
+  constructor(private readonly characterService: CharacterService) {}
 }

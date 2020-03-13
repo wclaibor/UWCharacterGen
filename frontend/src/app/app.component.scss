@@ -1,0 +1,14 @@
+:host {
+  height: 100vh;
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: column;
+  app-nav-header {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  mat-sidenav-container {
+    flex-grow: 1;
+  }
+}

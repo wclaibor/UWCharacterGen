@@ -1,3 +1,9 @@
-<app-class-selector [formGroup]="formGroup"></app-class-selector>
+<app-nav-header></app-nav-header>
 
-<app-icon-generator [character]="formGroup.value"></app-icon-generator>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <app-icon-generator [character]="character | async">
+    </app-icon-generator>
+  </mat-sidenav-content>
+</mat-sidenav-container>

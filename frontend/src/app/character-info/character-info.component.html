@@ -11,7 +11,7 @@
             Character Name
           </mat-label>
           <input matInput
-                 formControlName="characterName"
+                 formControlName="name"
                  name="uw_character_name" />
         </mat-form-field>
         <mat-form-field>
@@ -26,7 +26,7 @@
       <div class="row">
         <mat-form-field>
           <mat-label>Background</mat-label>
-          <mat-select formControlName="background">
+          <mat-select formControlName="origin">
             <mat-option *ngFor="let background of backgrounds"
                         [value]="background">
               {{ background }}
@@ -53,7 +53,5 @@
         </mat-form-field>
       </div>
     </form>
-    <button mat-button
-            (click)="generateCharacter()">Download Icon</button>
   </mat-card-content>
 </mat-card>

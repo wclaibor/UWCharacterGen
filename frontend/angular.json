@@ -97,5 +97,18 @@
       }
     }
   },
-  "defaultProject": "uncharted-worlds-icon-generator"
+  "defaultProject": "uncharted-worlds-icon-generator",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "uw",
+      "styleext": "scss",
+      "spec": false
+    },
+    "@schematics/angular:service": {
+      "spec": false
+    },
+    "@schematics/angular:directive": {
+      "prefix": "uw"
+    }
+  }
 }

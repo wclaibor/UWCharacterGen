@@ -1,34 +1,21 @@
-<!-- <div style="padding: 1rem;">
-  <div #characterIcon class="character-icon">
-    <div class="background">
-      <img src="assets/backgrounds/{{ backgroundIcon }}" />
-    </div>
-    <div class="career">
-      <div class="career-icon-container">
-        <img
-          class="career-icon career1"
-          src="assets/careers/{{ career1Icon }}"
-        />
+<mat-card>
+  <mat-card-title>
+    Class Icon
+  </mat-card-title>
+  <mat-card-content style="width: 500px; height: 770px">
+    <div class="icon-container"
+         #characterIcon>
+      <div class="origin-container">
+        <img *ngIf="newOriginIcon"
+             src="assets/origins_new/{{ newOriginIcon }}" />
       </div>
-      <div class="career-icon-container">
-        <img
-          class="career-icon career2"
-          src="assets/careers/{{ career2Icon }}"
-        />
+      <div class="career-container">
+        <img *ngIf="newCareer1Icon"
+             src="assets/careers_new/{{ newCareer1Icon }}" />
+        <img *ngIf="newCareer2Icon"
+             src="assets/careers_new/{{ newCareer2Icon }}"
+             style="transform: scaleX(-1);" />
       </div>
     </div>
-  </div>
-</div> -->
-
-<div style="padding: 1rem; width: 500px;" class="icon-container" #characterIcon>
-  <div class="origin-container">
-    <img src="assets/origins_new/{{ newOriginIcon }}" />
-  </div>
-  <div class="career-container">
-    <img src="assets/careers_new/{{ newCareer1Icon }}" />
-    <img
-      src="assets/careers_new/{{ newCareer2Icon }}"
-      style="transform: scaleX(-1);"
-    />
-  </div>
-</div>
+  </mat-card-content>
+</mat-card>

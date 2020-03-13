@@ -1,4 +1,4 @@
-export type Background =
+export type Origin =
   | 'Advanced'
   | 'Brutal'
   | 'Colonist'
@@ -15,7 +15,7 @@ export type Background =
   | 'Programmed'
   | 'Spiritual'
 
-export const Backgrounds: Background[] = [
+export const Origins: Origin[] = [
   'Advanced',
   'Brutal',
   'Colonist',

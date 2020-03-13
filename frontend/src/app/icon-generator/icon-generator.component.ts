@@ -18,7 +18,7 @@ import { IconGenerator } from './iconGenerator.interface'
 })
 export class IconGeneratorComponent implements OnChanges, IconGenerator {
   @ViewChild('characterIcon', { read: ElementRef })
-  private characterIconRef: ElementRef<HTMLElement>
+  private readonly characterIconRef: ElementRef<HTMLElement>
 
   @Input() character: Character
 
@@ -27,32 +27,44 @@ export class IconGeneratorComponent implements OnChanges, IconGenerator {
   newOriginIcon: string | null
   career1Icon: string | null
   career2Icon: string | null
-  backgroundIcon: string | null
+  originIcon: string | null
 
   constructor(private readonly iconService: IconService) {
     this.iconService.registerGenerator(this)
   }
 
   ngOnChanges() {
-    if (this.character.career1 != null) {
-      this.career1Icon = `${_.startCase(this.character.career1)}.png`
-      this.newCareer1Icon = `${_.lowerCase(this.character.career1)}.png`
+    if (this.character.characterInfo.career1 != null) {
+      this.career1Icon = `${_.startCase(
+        this.character.characterInfo.career1,
+      )}.png`
+      this.newCareer1Icon = `${_.lowerCase(
+        this.character.characterInfo.career1,
+      )}.png`
     } else {
       this.career1Icon = null
       this.newCareer1Icon = null
     }
-    if (this.character.career2 != null) {
-      this.career2Icon = `${_.startCase(this.character.career2)}.png`
-      this.newCareer2Icon = `${_.lowerCase(this.character.career2)}.png`
+    if (this.character.characterInfo.career2 != null) {
+      this.career2Icon = `${_.startCase(
+        this.character.characterInfo.career2,
+      )}.png`
+      this.newCareer2Icon = `${_.lowerCase(
+        this.character.characterInfo.career2,
+      )}.png`
     } else {
       this.career2Icon = null
       this.newCareer2Icon = null
     }
-    if (this.character.background != null) {
-      this.backgroundIcon = `${_.startCase(this.character.background)}.png`
-      this.newOriginIcon = `${_.lowerCase(this.character.background)}.png`
+    if (this.character.characterInfo.origin != null) {
+      this.originIcon = `${_.startCase(
+        this.character.characterInfo.origin,
+      )}.png`
+      this.newOriginIcon = `${_.lowerCase(
+        this.character.characterInfo.origin,
+      )}.png`
     } else {
-      this.backgroundIcon = null
+      this.originIcon = null
       this.newOriginIcon = null
     }
   }
