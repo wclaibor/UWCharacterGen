@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "debug": "yarn && yarn start",
     "start": "ng serve --host=0.0.0.0 --disable-host-check --poll",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

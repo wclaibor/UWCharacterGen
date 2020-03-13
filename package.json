@@ -1,0 +1,39 @@
+{
+  "name": "uwcharactergen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "prettier": "./.prettierrc.js",
+  "scripts": {
+    "fake-docker": "run-p debug:*",
+    "debug:frontend": "cd ./frontend && yarn debug",
+    "debug:backend": "cd ./backend && yarn debug",
+    "lint": "yarn lint:ts && yarn lint:scss",
+    "lint:ts": "eslint \"**/*.ts\"",
+    "lint:scss": "stylelint \"**/*.scss\"",
+    "prettier": "run-p prettier:*",
+    "prettier:frontend": "prettier --write \"frontend/src/**/*.ts\"",
+    "prettier:backend": "prettier --write \"backend/src/**/*.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wclaibor/UWCharacterGen.git"
+  },
+  "author": "wclaiborne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wclaibor/UWCharacterGen/issues"
+  },
+  "homepage": "https://github.com/wclaibor/UWCharacterGen#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "stylelint": "^13.2.1",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.14.2"
+  }
+}

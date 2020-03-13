@@ -1,27 +1,40 @@
-# UnchartedWorldsIconGenerator
+# Angular Modules Training
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+## Anatomy of an Angular Module
 
-## Development server
+- declarations
+  - The set of components, directives, and pipes (declarables) that belong to this module.
+- ~~entryComponents~~ (Removed in Angular 9)
+  - The set of components to compile when this NgModule is defined
+  - Components that need to be compiled dynamically
+- providers
+  - The set of injectable objects that are available in the injector of this module.
+- imports
+  - The set of NgModules whose exported declarables are available to templates in this module.
+- exports
+  - The set of components, directives, and pipes declared in this NgModule that can be used in the template of any component that is part of an NgModule that imports this NgModule.
+  - Exported declarations are the module's public API.
+- bootstrap
+  - The set of components that are bootstrapped when this module is bootstrapped.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Types of Angular Modules
 
-## Code scaffolding
+- Domain Feature Module
+  - Components that relate to a specific feature
+- Routed Feature Module
+  - Components that are the target of a navigation route
+  - Should contain your "pages"
+  - Can be lazy-loaded
+- Routing Module
+  - Provides routing configuration
+  - Defines routes
+  - Provides route guards and resolver services
+- Service Module
+  - Provides utility services such as data access
+- Widget Module
+  - Makes shared components available
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Resources
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- https://angular.io/guide/ngmodules
+- https://angular.io/guide/module-types

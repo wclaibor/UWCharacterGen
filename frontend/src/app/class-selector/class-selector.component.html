@@ -3,33 +3,32 @@
     Character Selection
   </mat-card-title>
   <mat-card-content>
-    <form class="inline-form" [formGroup]="formGroup">
+    <form class="inline-form"
+          [formGroup]="formGroup">
       <div class="row">
         <mat-form-field>
           <mat-label>
             Character Name
           </mat-label>
-          <input
-            matInput
-            formControlName="characterName"
-            name="uw_character_name"
-          />
+          <input matInput
+                 formControlName="characterName"
+                 name="uw_character_name" />
         </mat-form-field>
         <mat-form-field>
           <mat-label>
             Archetype
           </mat-label>
-          <input matInput formControlName="archetype" name="uw_archetype" />
+          <input matInput
+                 formControlName="archetype"
+                 name="uw_archetype" />
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field>
           <mat-label>Background</mat-label>
           <mat-select formControlName="background">
-            <mat-option
-              *ngFor="let background of backgrounds"
-              [value]="background"
-            >
+            <mat-option *ngFor="let background of backgrounds"
+                        [value]="background">
               {{ background }}
             </mat-option>
           </mat-select>
@@ -37,7 +36,8 @@
         <mat-form-field>
           <mat-label>Career 1</mat-label>
           <mat-select formControlName="career1">
-            <mat-option *ngFor="let career of careers" [value]="career">
+            <mat-option *ngFor="let career of careers"
+                        [value]="career">
               {{ career }}
             </mat-option>
           </mat-select>
@@ -45,13 +45,15 @@
         <mat-form-field>
           <mat-label>Career 2</mat-label>
           <mat-select formControlName="career2">
-            <mat-option *ngFor="let career of careers" [value]="career">
+            <mat-option *ngFor="let career of careers"
+                        [value]="career">
               {{ career }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
     </form>
-    <button mat-button (click)="generateCharacter()">Download Icon</button>
+    <button mat-button
+            (click)="generateCharacter()">Download Icon</button>
   </mat-card-content>
 </mat-card>

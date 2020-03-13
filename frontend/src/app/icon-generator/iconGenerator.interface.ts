@@ -1,3 +1,3 @@
 export interface IconGenerator {
-  getIconImage: () => Promise<string>;
+  getIconImage: () => Promise<string>
 }

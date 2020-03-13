@@ -1,17 +1,17 @@
-import { Injectable } from "@angular/core";
-import { IconGenerator } from "./icon-generator/iconGenerator.interface";
+import { Injectable } from '@angular/core'
+import { IconGenerator } from './icon-generator/iconGenerator.interface'
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class IconService {
-  generator?: IconGenerator;
+  generator?: IconGenerator
 
   registerGenerator(generator: IconGenerator) {
-    this.generator = generator;
+    this.generator = generator
   }
 
   getIcon() {
-    return this.generator.getIconImage();
+    return this.generator.getIconImage()
   }
 }
