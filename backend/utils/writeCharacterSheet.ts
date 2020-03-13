@@ -1,7 +1,7 @@
 import * as HummusRecipe from 'hummus-recipe';
 
-const imageWidth = 200;
-const imageHeight = 300;
+const imageWidth = 500;
+const imageHeight = 766;
 
 export function writeCharacterSheet(character: {
   characterName: string;
@@ -19,13 +19,22 @@ export function writeCharacterSheet(character: {
 
   const imageX = pageInfo.width / 2; // - imageWidth / 2;
   const imageY = 200;
+  const opacity = 0.15;
 
   pdf
     .editPage(1)
     .image(`${__dirname}/../temp/classIcon.png`, imageX, imageY, {
       align: 'center center',
-      opacity: 0.2,
-      height: 300,
+      opacity,
+      height: 280,
+      keepAspectRatio: true
+    })
+    .endPage()
+    .editPage(2)
+    .image(`${__dirname}/../temp/classIcon.png`, imageX, imageY, {
+      align: 'center center',
+      opacity,
+      height: 280,
       keepAspectRatio: true
     })
     .endPage()

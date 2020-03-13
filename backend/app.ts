@@ -6,7 +6,7 @@ import * as http from 'http';
 import api from './api';
 const app = express();
 // body parsing middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 // all routes are falling back into api.js
 app.use('/', api);

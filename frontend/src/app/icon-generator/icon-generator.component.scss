@@ -19,3 +19,13 @@
     }
   }
 }
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  .career-container {
+    margin-top: -100px;
+    display: flex;
+    flex-direction: row;
+  }
+}
