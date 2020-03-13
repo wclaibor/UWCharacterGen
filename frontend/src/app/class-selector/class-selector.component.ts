@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { FormGroup } from '@angular/forms'
 import { CharacterSheetService } from '../character-sheet.service'
 import { Background, Backgrounds } from '../models/backgrounds'
@@ -9,12 +9,10 @@ import { Career, Careers } from '../models/careers'
   templateUrl: './class-selector.component.html',
   styleUrls: ['./class-selector.component.scss'],
 })
-export class ClassSelectorComponent implements OnInit {
+export class ClassSelectorComponent {
   @Input() formGroup?: FormGroup
 
   constructor(private readonly characterSheetService: CharacterSheetService) {}
-
-  ngOnInit() {}
 
   backgrounds: Background[] = Backgrounds
   careers: Career[] = Careers

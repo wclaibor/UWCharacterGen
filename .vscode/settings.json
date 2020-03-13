@@ -1,0 +1,27 @@
+{
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "editor.codeActionsOnSave": { "source.organizeImports": true },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.watcherExclude": {
+    "**/build/*": true,
+    "**/dist/*": true,
+    ".vscode": true
+  },
+  "git.autofetch": true,
+  "html.format.endWithNewline": true,
+  "html.format.indentHandlebars": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.maxPreserveNewLines": 1,
+  "html.format.wrapAttributes": "force-aligned",
+  "html.format.wrapLineLength": 80,
+  "prettier.disableLanguages": ["vue", "html"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "search.exclude": {
+    ".yarn/**": true
+  }
+}
