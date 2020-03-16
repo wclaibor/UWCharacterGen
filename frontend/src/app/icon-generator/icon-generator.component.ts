@@ -3,6 +3,7 @@ import {
   ElementRef,
   HostBinding,
   Input,
+  OnInit,
   ViewChild,
 } from '@angular/core'
 import domtoimage from 'dom-to-image'
@@ -19,7 +20,7 @@ import { IconGenerator } from './iconGenerator.interface'
   templateUrl: './icon-generator.component.html',
   styleUrls: ['./icon-generator.component.scss'],
 })
-export class IconGeneratorComponent implements IconGenerator {
+export class IconGeneratorComponent implements IconGenerator, OnInit {
   @ViewChild('characterIcon', { read: ElementRef })
   private readonly characterIconRef: ElementRef<HTMLElement>
 
@@ -39,12 +40,17 @@ export class IconGeneratorComponent implements IconGenerator {
     private readonly iconService: IconService,
     private readonly characterService: CharacterService,
   ) {
-    this.iconService.registerGenerator(this)
     this.character = this.characterService.character
 
     this.character
       .pipe(tap(value => this.updateCharacterIcon(value)))
       .subscribe()
+  }
+
+  ngOnInit() {
+    if (!this.cardTitle) {
+      this.iconService.registerGenerator(this)
+    }
   }
 
   updateCharacterIcon(character: Character) {
