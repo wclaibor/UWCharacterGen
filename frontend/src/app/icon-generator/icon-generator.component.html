@@ -1,21 +1,14 @@
-<mat-card>
-  <mat-card-title>
-    Class Icon
-  </mat-card-title>
-  <mat-card-content style="width: 500px; height: 770px">
-    <div class="icon-container"
-         #characterIcon>
-      <div class="origin-container">
-        <img *ngIf="originIcon"
-             src="assets/origins_new/{{ originIcon }}" />
-      </div>
-      <div class="career-container">
-        <img *ngIf="career1Icon"
-             src="assets/careers_new/{{ career1Icon }}" />
-        <img *ngIf="career2Icon"
-             src="assets/careers_new/{{ career2Icon }}"
-             style="transform: scaleX(-1);" />
-      </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+<div class="icon-container"
+     #characterIcon>
+  <div class="origin-container">
+    <img *ngIf="originIcon"
+         src="assets/origins_new/{{ originIcon }}" />
+  </div>
+  <div class="career-container">
+    <img *ngIf="career1Icon"
+         src="assets/careers_new/{{ career1Icon }}" />
+    <img *ngIf="career2Icon"
+         src="assets/careers_new/{{ career2Icon }}"
+         style="transform: scaleX(-1);" />
+  </div>
+</div>

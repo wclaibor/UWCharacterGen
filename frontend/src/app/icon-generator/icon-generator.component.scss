@@ -1,33 +1,44 @@
-.character-icon {
-  width: 83px;
-  .career {
-    margin-top: -32px;
-    display: flex;
+$icon-width: 1rem; // 16px
+$icon-height: 1.5rem; //24px
 
-    .career-icon-container {
-      width: 40px;
-      overflow: hidden;
-      margin-right: 2px;
+$icon-resize: 32;
 
-      .career-icon {
-        height: 80px;
-        width: 80px;
-      }
-      .career2 {
-        margin-left: -40px;
-      }
-    }
-  }
-}
+$fullsize-width: $icon-width * $icon-resize;
+$fullsize-height: $icon-height * $icon-resize;
 
 .icon-container {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: $fullsize-width;
+  height: $fullsize-height;
   background-color: white;
+  .origin-container {
+    display: flex;
+  }
   .career-container {
     margin-top: -100px;
     display: flex;
     flex-direction: row;
+  }
+}
+
+:host.card-title .icon-container {
+  width: 50px;
+  height: $icon-height;
+  width: $icon-width;
+  .origin-container {
+    display: flex;
+  }
+  .career-container {
+    margin-top: -0.25rem;
+    display: flex;
+  }
+  img {
+    filter: invert(1);
+    max-width: $icon-width;
+    height: auto;
+  }
+  .career-container img {
+    max-width: $icon-width / 2;
   }
 }

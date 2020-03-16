@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core'
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  Input,
+  ViewChild,
+} from '@angular/core'
 import domtoimage from 'dom-to-image'
 import * as _ from 'lodash-es'
 import { Observable } from 'rxjs'
@@ -16,6 +22,12 @@ import { IconGenerator } from './iconGenerator.interface'
 export class IconGeneratorComponent implements IconGenerator {
   @ViewChild('characterIcon', { read: ElementRef })
   private readonly characterIconRef: ElementRef<HTMLElement>
+
+  @Input() cardTitle = false
+
+  @HostBinding('class.card-title') get isCardTitle() {
+    return this.cardTitle
+  }
 
   character: Observable<Character>
 
