@@ -16,22 +16,21 @@ export function writeCharacterSheet(character: Character) {
   const imageY = 200
   const opacity = 0.15
 
+  const iconPath = `${__dirname}/../../temp/classIcon.png`
+
+  const imageOptions: HummusRecipe.ImageOptions = {
+    align: 'center center',
+    opacity,
+    height: 280,
+    keepAspectRatio: true,
+  }
+
   pdf
     .editPage(1)
-    .image(`${__dirname}/../../temp/classIcon.png`, imageX, imageY, {
-      align: 'center center',
-      opacity,
-      height: 280,
-      keepAspectRatio: true,
-    })
+    .image(iconPath, imageX, imageY, imageOptions)
     .endPage()
     .editPage(2)
-    .image(`${__dirname}/../../temp/classIcon.png`, imageX, imageY, {
-      align: 'center center',
-      opacity,
-      height: 280,
-      keepAspectRatio: true,
-    })
+    .image(iconPath, imageX, imageY, imageOptions)
     .endPage()
     .endPDF()
 }
