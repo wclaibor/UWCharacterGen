@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { RouterModule, Routes } from '@angular/router'
+import { IconGeneratorModule } from '../icon-generator/icon-generator.module'
 import { AttributesComponent } from './attributes.component'
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     MatCardModule,
     MatInputModule,
     MatSelectModule,
+    IconGeneratorModule,
     RouterModule.forChild(routes),
   ],
 })

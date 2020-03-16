@@ -68,6 +68,35 @@ it down as we make new modules.
 - Widget Module
   - Makes shared components available
 
+## Widget Module
+
+Let's start with a simple module type: The Widget Module. These modules are most common in angular component libraries where components are generic and made for reuse, but most large applications could benefit from moving commonly used components into separate widget modules that can be imported only when needed. 
+
+In our case, the `IconGeneratorComponent` is used in all of our pages as an icon in the card header as well as in the main component as a canvas that will be used in the final character sheet pdf. In order to reuse across our lazily loaded modules, let's move it into its own widget module.
+
+Run this command to have the Angular CLI create a new module for our component.
+
+```bash
+ng g m icon-generator
+```
+
+Now, in the newly generated `icon-generator.module.ts`, add `IconGeneratorComponent` to the declaration and export arrays. The result should look like this
+
+```ts
+@NgModule({
+  declarations: [IconGeneratorComponent],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    IconGeneratorComponent
+  ]
+})
+export class IconGeneratorModule { }
+```
+
+Then, remove `IconGeneratorComponent` from the declarations array in `app.module.ts` and add `IconGeneratorModule` as an import.
+
 ## Router Module
 
 Let's start with a common scenario. Our application has grown beyond its
@@ -153,7 +182,7 @@ export class AppRoutingModule {}
 
 Next, remove the associated components from the declarations block in `app.module.ts` and declare them in their new route modules. You'll notice that your build is no longer working. That's because when we moved each of the route components into their own module, we didn't include the material component modules needed for each component to function. This is good because it allows us to only pull in the parts of material components that each route needs and reduce our bundle size. It does require some cleanup however. To fix it, pull the @angular/material modules out of `app.module.ts` and add the subset required for each route to that route's module. Then make sure your build is working and your routes all still work.
 
-**HINT** Most of the route modules will need ReactiveFormsModule, MatCardModule, MatInputModule, and MatSelectModule
+**HINT** Most of the route modules will need `ReactiveFormsModule`, `MatCardModule`, `MatInputModule`, and `MatSelectModule` as well as our `IconGeneratorModule`
 
 Next, we'll convert our routed feature modules into lazy-loaded modules. Add a default route to each of our new feature modules that looks like this.
 

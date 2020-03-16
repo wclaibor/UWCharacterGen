@@ -11,11 +11,11 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app.routing.module'
-import { IconGeneratorComponent } from './icon-generator/icon-generator.component'
+import { IconGeneratorModule } from './icon-generator/icon-generator.module'
 import { NavHeaderComponent } from './nav-header/nav-header.component'
 
 @NgModule({
-  declarations: [AppComponent, IconGeneratorComponent, NavHeaderComponent],
+  declarations: [AppComponent, NavHeaderComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -29,6 +29,7 @@ import { NavHeaderComponent } from './nav-header/nav-header.component'
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    IconGeneratorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
