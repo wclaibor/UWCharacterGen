@@ -121,6 +121,157 @@ loading to our application
 
 ## Lazy Loaded Routes
 
+Lazy loading routes in Angular is accomplished using routed feature modules. So
+the first step is to create a new Angular module file for each of our routes.
+Right now, the only routes that exist are `Character Info`, `Attributes`, and
+`Moves`. So let's run these commands to let the Angular CLI generate those
+module files for us.
+
+```bash
+ng g m attributes
+ng g m character-info
+ng g m moves
+```
+
+Now we have modules, but nothing is in them. For the first step, let's import all of our new modules into the `app-routing.module.ts` file, just to make sure everything is connected. Your app.module should look something like this
+
+```ts
+@NgModule({
+  ...
+  imports: [
+    ...
+    MovesModule,
+    CharacterInfoModule,
+    AttributesModule,
+    RouterModule.forRoot(routes, routerOptions),
+    ...
+  ],
+  ...
+})
+export class AppRoutingModule {}
+```
+
+Next, remove the associated components from the declarations block in `app.module.ts` and declare them in their new route modules. You'll notice that your build is no longer working. That's because when we moved each of the route components into their own module, we didn't include the material component modules needed for each component to function. This is good because it allows us to only pull in the parts of material components that each route needs and reduce our bundle size. It does require some cleanup however. To fix it, pull the @angular/material modules out of `app.module.ts` and add the subset required for each route to that route's module. Then make sure your build is working and your routes all still work.
+
+**HINT** Most of the route modules will need ReactiveFormsModule, MatCardModule, MatInputModule, and MatSelectModule
+
+Next, we'll convert our routed feature modules into lazy-loaded modules. Add a default route to each of our new feature modules that looks like this.
+
+```ts
+const routes: Routes = [
+  {
+    path: '',
+    component: AttributesComponent,
+  },
+]
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    RouterModule.forChild(routes),
+    ...
+  ],
+})
+export class AttributesModule {}
+```
+
+Make sure you do this for the `AttributesModule`, the `CharacterInfoModule` and the `MovesModule`.
+
+Now all we have to do to get lazy loading working is point the `app-routing.module.ts` at our feature modules instead of directly to our components. Modify each of the child routes to look like this.
+
+```ts
+{
+  path: 'attributes',
+  loadChildren: () =>
+    import('./attributes/attributes.module').then(
+      mod => mod.AttributesModule,
+    ),
+},
+```
+
+Then remove the feature modules from your imports array. The final result will look like this.
+
+```ts
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'characterInfo',
+  },
+  {
+    path: 'attributes',
+    loadChildren: () =>
+      import('./attributes/attributes.module').then(
+        mod => mod.AttributesModule,
+      ),
+  },
+  {
+    path: 'characterInfo',
+    loadChildren: () =>
+      import('./character-info/character-info.module').then(
+        mod => mod.CharacterInfoModule,
+      ),
+  },
+  {
+    path: 'moves',
+    loadChildren: () =>
+      import('./moves/moves.module').then(mod => mod.MovesModule),
+  },
+]
+
+const routerOptions: ExtraOptions = {
+  enableTracing: false,
+}
+
+@NgModule({
+  declarations: [],
+  imports: [CommonModule, RouterModule.forRoot(routes, routerOptions)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'characterInfo',
+  },
+  {
+    path: 'attributes',
+    loadChildren: () =>
+      import('./attributes/attributes.module').then(
+        mod => mod.AttributesModule,
+      ),
+  },
+  {
+    path: 'characterInfo',
+    loadChildren: () =>
+      import('./character-info/character-info.module').then(
+        mod => mod.CharacterInfoModule,
+      ),
+  },
+  {
+    path: 'moves',
+    loadChildren: () =>
+      import('./moves/moves.module').then(mod => mod.MovesModule),
+  },
+]
+
+const routerOptions: ExtraOptions = {
+  enableTracing: false,
+}
+
+@NgModule({
+  declarations: [],
+  imports: [CommonModule, RouterModule.forRoot(routes, routerOptions)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+```
+
+Make sure all of your routes are working correctly and open the network tab of your browser's dev tools to ensure that each page's chunk is loaded when you route to it.
+
+## 
+
 ## Resources
 
 - https://angular.io/guide/ngmodules

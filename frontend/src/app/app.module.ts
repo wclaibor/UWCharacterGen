@@ -11,21 +11,11 @@ import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app.routing.module'
-import { AttributesComponent } from './attributes/attributes.component'
-import { CharacterInfoComponent } from './character-info/character-info.component'
 import { IconGeneratorComponent } from './icon-generator/icon-generator.component'
-import { MovesComponent } from './moves/moves.component'
 import { NavHeaderComponent } from './nav-header/nav-header.component'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CharacterInfoComponent,
-    IconGeneratorComponent,
-    AttributesComponent,
-    MovesComponent,
-    NavHeaderComponent,
-  ],
+  declarations: [AppComponent, IconGeneratorComponent, NavHeaderComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
