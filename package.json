@@ -5,6 +5,7 @@
   "main": "index.js",
   "prettier": "./.prettierrc.js",
   "scripts": {
+    "start": "yarn fake-docker",
     "fake-docker": "run-p debug:*",
     "debug:frontend": "cd ./frontend && yarn debug",
     "debug:backend": "cd ./backend && yarn debug",
