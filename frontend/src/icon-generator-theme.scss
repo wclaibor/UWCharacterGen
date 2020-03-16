@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin icon-generator-theme($theme) {
+  $background: map-get($theme, background);
+
+  uw-icon-generator.card-title .icon-container {
+    background: mat-color($background, card);
+  }
+}

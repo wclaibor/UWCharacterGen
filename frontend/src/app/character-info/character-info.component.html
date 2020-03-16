@@ -1,7 +1,11 @@
 <mat-card *ngIf="formGroup != null">
-  <mat-card-title>
-    Character Selection
-  </mat-card-title>
+  <mat-card-title-group>
+    <mat-card-title>
+      Character Selection
+    </mat-card-title>
+    <uw-icon-generator [cardTitle]="true">
+    </uw-icon-generator>
+  </mat-card-title-group>
   <mat-card-content>
     <form class="inline-form"
           [formGroup]="formGroup">

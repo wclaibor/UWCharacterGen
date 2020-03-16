@@ -1,71 +1,67 @@
 import {
   Component,
   ElementRef,
+  HostBinding,
   Input,
-  OnChanges,
   ViewChild,
 } from '@angular/core'
 import domtoimage from 'dom-to-image'
 import * as _ from 'lodash-es'
+import { Observable } from 'rxjs'
+import { tap } from 'rxjs/operators'
+import { CharacterService } from '../character.service'
 import { IconService } from '../icon.service'
 import { Character } from '../models/character'
 import { IconGenerator } from './iconGenerator.interface'
 
 @Component({
-  selector: 'app-icon-generator',
+  selector: 'uw-icon-generator',
   templateUrl: './icon-generator.component.html',
   styleUrls: ['./icon-generator.component.scss'],
 })
-export class IconGeneratorComponent implements OnChanges, IconGenerator {
+export class IconGeneratorComponent implements IconGenerator {
   @ViewChild('characterIcon', { read: ElementRef })
   private readonly characterIconRef: ElementRef<HTMLElement>
 
-  @Input() character: Character
+  @Input() cardTitle = false
 
-  newCareer1Icon: string | null
-  newCareer2Icon: string | null
-  newOriginIcon: string | null
+  @HostBinding('class.card-title') get isCardTitle() {
+    return this.cardTitle
+  }
+
+  character: Observable<Character>
+
   career1Icon: string | null
   career2Icon: string | null
   originIcon: string | null
 
-  constructor(private readonly iconService: IconService) {
+  constructor(
+    private readonly iconService: IconService,
+    private readonly characterService: CharacterService,
+  ) {
     this.iconService.registerGenerator(this)
+    this.character = this.characterService.character
+
+    this.character
+      .pipe(tap(value => this.updateCharacterIcon(value)))
+      .subscribe()
   }
 
-  ngOnChanges() {
-    if (this.character.characterInfo.career1 != null) {
-      this.career1Icon = `${_.startCase(
-        this.character.characterInfo.career1,
-      )}.png`
-      this.newCareer1Icon = `${_.lowerCase(
-        this.character.characterInfo.career1,
-      )}.png`
+  updateCharacterIcon(character: Character) {
+    if (character.characterInfo.career1 != null) {
+      this.career1Icon = `${_.lowerCase(character.characterInfo.career1)}.png`
     } else {
       this.career1Icon = null
-      this.newCareer1Icon = null
     }
-    if (this.character.characterInfo.career2 != null) {
-      this.career2Icon = `${_.startCase(
-        this.character.characterInfo.career2,
-      )}.png`
-      this.newCareer2Icon = `${_.lowerCase(
-        this.character.characterInfo.career2,
-      )}.png`
+    if (character.characterInfo.career2 != null) {
+      this.career2Icon = `${_.lowerCase(character.characterInfo.career2)}.png`
     } else {
       this.career2Icon = null
-      this.newCareer2Icon = null
     }
-    if (this.character.characterInfo.origin != null) {
-      this.originIcon = `${_.startCase(
-        this.character.characterInfo.origin,
-      )}.png`
-      this.newOriginIcon = `${_.lowerCase(
-        this.character.characterInfo.origin,
-      )}.png`
+    if (character.characterInfo.origin != null) {
+      this.originIcon = `${_.lowerCase(character.characterInfo.origin)}.png`
     } else {
       this.originIcon = null
-      this.newOriginIcon = null
     }
   }
 
