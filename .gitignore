@@ -1,3 +1,4 @@
 **/node_modules/**
 ./backend/temp/**
 backend/temp/*
+backend/hummus-error.log
