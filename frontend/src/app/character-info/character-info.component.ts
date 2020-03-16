@@ -63,8 +63,4 @@ export class CharacterInfoComponent implements OnDestroy {
     this.destroySubject.next()
     this.destroySubject.complete()
   }
-
-  generateCharacter() {
-    this.characterSheetService.generateCharacter(this.formGroup.value)
-  }
 }

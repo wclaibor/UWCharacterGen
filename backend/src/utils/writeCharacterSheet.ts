@@ -1,18 +1,13 @@
 import * as HummusRecipe from 'hummus-recipe'
+import { Character } from '../models/character'
 
 const imageWidth = 500
 const imageHeight = 766
 
-export function writeCharacterSheet(character: {
-  characterName: string
-  archetype: string
-  origin: string
-  career1: string
-  career2: string
-}) {
+export function writeCharacterSheet(character: Character) {
   const pdf = new HummusRecipe(
-    `${__dirname}/../assets/blank-sheet.pdf`,
-    `${__dirname}/../temp/${character.characterName}-sheet.pdf`,
+    `${__dirname}/../../assets/blank-sheet.pdf`,
+    `${__dirname}/../../temp/${character.characterInfo.name}-sheet.pdf`,
   )
 
   const pageInfo = (pdf.pageInfo(1) as unknown) as HummusRecipe.PageInfo
@@ -23,7 +18,7 @@ export function writeCharacterSheet(character: {
 
   pdf
     .editPage(1)
-    .image(`${__dirname}/../temp/classIcon.png`, imageX, imageY, {
+    .image(`${__dirname}/../../temp/classIcon.png`, imageX, imageY, {
       align: 'center center',
       opacity,
       height: 280,
@@ -31,7 +26,7 @@ export function writeCharacterSheet(character: {
     })
     .endPage()
     .editPage(2)
-    .image(`${__dirname}/../temp/classIcon.png`, imageX, imageY, {
+    .image(`${__dirname}/../../temp/classIcon.png`, imageX, imageY, {
       align: 'center center',
       opacity,
       height: 280,

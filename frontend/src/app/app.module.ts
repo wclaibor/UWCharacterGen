@@ -14,6 +14,7 @@ import { AppRouterModule } from './app.router.module'
 import { AttributesComponent } from './attributes/attributes.component'
 import { CharacterInfoComponent } from './character-info/character-info.component'
 import { IconGeneratorComponent } from './icon-generator/icon-generator.component'
+import { MovesComponent } from './moves/moves.component'
 import { NavHeaderComponent } from './nav-header/nav-header.component'
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NavHeaderComponent } from './nav-header/nav-header.component'
     CharacterInfoComponent,
     IconGeneratorComponent,
     AttributesComponent,
+    MovesComponent,
     NavHeaderComponent,
   ],
   imports: [

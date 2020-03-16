@@ -3,6 +3,22 @@
     Character Attributes
   </mat-card-title>
   <mat-card-content>
-
+    <form [formGroup]="formGroup"
+          class="inline-form">
+      <mat-form-field *ngFor="let control of controls">
+        <mat-label>{{control.name | titlecase}}</mat-label>
+        <mat-select [formControl]="control.control"
+                    [value]="control.control.value">
+          <mat-option *ngIf="control.control.value != null"
+                      [value]="control.control.value">
+            {{control.control.value}}
+          </mat-option>
+          <mat-option *ngFor="let value of attributeValues"
+                      [value]="value">
+            {{ value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
   </mat-card-content>
 </mat-card>

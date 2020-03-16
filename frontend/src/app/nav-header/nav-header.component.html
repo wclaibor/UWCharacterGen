@@ -6,9 +6,16 @@
   <a mat-button
      routerLink="/attributes">Attributes</a>
   <a mat-button
-     routerLink="/skills">Skills</a>
+     routerLink="/moves">Moves</a>
   <a mat-button
      routerLink="/ship">Ship</a>
   <a mat-button
      routerLink="/factions">Factions and Debt</a>
+  <div class="right-content">
+    <button mat-button
+            (click)="createCharacterSheet()"
+            color="accent">
+      Create Character Sheet
+    </button>
+  </div>
 </mat-toolbar>

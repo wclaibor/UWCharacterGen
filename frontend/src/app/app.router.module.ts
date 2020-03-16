@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core'
 import { ExtraOptions, RouterModule, Routes } from '@angular/router'
 import { AttributesComponent } from './attributes/attributes.component'
 import { CharacterInfoComponent } from './character-info/character-info.component'
+import { MovesComponent } from './moves/moves.component'
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'attributes',
     component: AttributesComponent,
+  },
+  {
+    path: 'moves',
+    component: MovesComponent,
   },
 ]
 
