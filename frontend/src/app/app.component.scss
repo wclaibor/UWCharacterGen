@@ -11,4 +11,16 @@
   mat-sidenav-container {
     flex-grow: 1;
   }
+
+  .page-content {
+    max-width: 50rem;
+    padding: 1rem;
+    .icon-card {
+      padding-top: 1rem;
+      mat-card-content {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
 }

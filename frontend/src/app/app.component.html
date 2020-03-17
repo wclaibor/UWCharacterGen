@@ -2,9 +2,15 @@
 
 <mat-sidenav-container>
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
-    <div style="padding: 1rem;">
-      <uw-icon-generator></uw-icon-generator>
+    <div class="page-content">
+      <router-outlet></router-outlet>
+      <div class='icon-card'>
+        <mat-card>
+          <mat-card-content>
+            <uw-icon-generator></uw-icon-generator>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
