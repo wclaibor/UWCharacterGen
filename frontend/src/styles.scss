@@ -20,11 +20,19 @@ mat-form-field {
 // Include non-theme styles for core.
 @include mat-core();
 
-// Define a theme.
-$primary: mat-palette($mat-purple, 700, 500, 800);
-$accent: mat-palette($mat-green, A200, A100, A400);
+// Dark Theme
+// TODO make this work again
+// $primary: mat-palette($mat-purple, 700, 500, 800);
+// $accent: mat-palette($mat-green, A200, A100, A400);
 
-$theme: mat-dark-theme($primary, $accent);
+// $theme: mat-dark-theme($primary, $accent);
+
+// Light Theme
+$primary: mat-palette($mat-deep-purple);
+$accent: mat-palette($mat-amber, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
 // Include theme styles for Angular Material components.
 @include angular-material-theme($theme);
 
