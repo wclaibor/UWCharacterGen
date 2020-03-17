@@ -11,9 +11,9 @@ $fullsize-height: $icon-height * $icon-resize;
   flex-direction: column;
   width: $fullsize-width;
   height: $fullsize-height;
-  img {
-    filter: invert(1);
-  }
+  // img {
+  //   filter: invert(1);
+  // }
   .origin-container {
     display: flex;
   }
